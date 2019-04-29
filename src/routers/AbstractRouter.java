@@ -124,7 +124,7 @@ public abstract class AbstractRouter
 		// decide where to send message
   		if (message[4] != 1)
   		{
-  			System.out.println("Sending to Router");
+  			System.out.println("Sending to Internet Router");
   			if (this.success)
   				this.sendToInternetRouter();
   			else
@@ -154,7 +154,7 @@ public abstract class AbstractRouter
 	{
 		System.out.println("sending to: " + dest);
 		try {
-			sendDest = InetAddress.getByName("157.160.37.178");
+			sendDest = InetAddress.getByName("157.160.37.180");
 //			out.writeBoolean(false);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
