@@ -106,15 +106,16 @@ public abstract class AbstractRouter
   		
 		this.source = message[0];
 		this.dest = message[1];
-  		System.out.println("Message From: " + this.source);
-  		System.out.println("Message Going to: " + this.dest);
-  		System.out.println("Checksum received: " + message[2]);
+		System.out.println("Client Source: " + message[0]);
+		System.out.println("Client Dest: " + message[1]);
+		System.out.println("CheckSum: " + message[2]);
+		System.out.println("LAN Source: " + message[3]);
+		System.out.println("LAN Dest: " + message[4]);
+		System.out.println("Data");
+		for (int i = 5; i < message.length; i++)
+			System.out.print(message[i] + " ");
+		System.out.println("");
 		
-  		System.out.println("Message data: ");
-  		for (int i = 3; i < message.length; i++)
-  			System.out.print(message[i] + " ");
-  		System.out.println("");
-  		
   		this.checksum = this.computeCheckSum();
   		
 //		String message = "From: " + this.source;
@@ -157,7 +158,7 @@ public abstract class AbstractRouter
     
         
 //        System.out.println("C1_DATA");
-        for(int i = 2; i< newData.length; i++) 
+        for(int i = 5; i< newData.length; i++) 
         {                  
         		
             // Complementing the data being received 

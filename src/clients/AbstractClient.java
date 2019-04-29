@@ -188,7 +188,7 @@ public class AbstractClient {
         
         byte[] c1_data = new byte[length];
     
-        for(int i = 2; i< newData.length; i++) 
+        for(int i = 5; i< newData.length; i++) 
         {                  
         		
             // Complementing the data being received 
@@ -221,11 +221,13 @@ public class AbstractClient {
 	
 	public void displayMessage(byte[] message)
 	{
-		System.out.println("Source: " + message[0]);
-		System.out.println("Dest: " + message[1]);
+		System.out.println("Client Source: " + message[0]);
+		System.out.println("Client Dest: " + message[1]);
 		System.out.println("CheckSum: " + message[2]);
+		System.out.println("LAN Source: " + message[3]);
+		System.out.println("LAN Dest: " + message[4]);
 		System.out.println("Data");
-		for (int i = 3; i < message.length; i++)
+		for (int i = 5; i < message.length; i++)
 			System.out.print(message[i] + " ");
 		System.out.println("");
 	}
@@ -259,18 +261,24 @@ public class AbstractClient {
 		message[0] = this.source;
 //		System.out.println("this source: " + message[0]);
 		
-		// random destination
+		// random destination client
 		message[1] = (byte) (this.rand.nextInt(4) + 1);
-				
+		
+		// this NAT source
+		message[3] = (byte) 1;
+		
+		// random NAT dest
+		message[4] = (byte) (this.rand.nextInt(7) + 1);
+		
 		// start with starting value
-		message[3] = (byte) this.startingValue;
+		message[5] = (byte) this.startingValue;
 		numReqBytes = (byte) ((Math.floor(Math.log(message[3]) / Math.log(2))) + 1);
 		complementedData = (byte) (((1 << numReqBytes) - 1) ^ message[3]);
 		sum += complementedData;
 				
 		// random data
 //		System.out.println("C_DATA");
-        for (int i = 4; i < length; i++)  
+        for (int i = 6; i < length; i++)  
         {               
     			// random byte
         		message[i] = (byte) (rand.nextInt(100000) + 1);
