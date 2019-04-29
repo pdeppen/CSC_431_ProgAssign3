@@ -215,6 +215,12 @@ public abstract class AbstractRouter
         
         byte[] c1_data = new byte[length];
     
+        numReqBytes = (byte) ((Math.floor(Math.log(newData[2]) / Math.log(2))) + 1);  
+        c1_data[2] = (byte) (((1 << numReqBytes) - 1) ^ newData[2]); 
+        
+//        System.out.println(c1_data[i]);
+        // Adding the complemented data 
+        sum += c1_data[2]; 
         
 //        System.out.println("C1_DATA");
         for(int i = 5; i< newData.length; i++) 
