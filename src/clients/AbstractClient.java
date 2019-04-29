@@ -272,8 +272,8 @@ public class AbstractClient {
 		
 		// start with starting value
 		message[5] = (byte) this.startingValue;
-		numReqBytes = (byte) ((Math.floor(Math.log(message[3]) / Math.log(2))) + 1);
-		complementedData = (byte) (((1 << numReqBytes) - 1) ^ message[3]);
+		numReqBytes = (byte) ((Math.floor(Math.log(message[5]) / Math.log(2))) + 1);
+		complementedData = (byte) (((1 << numReqBytes) - 1) ^ message[5]);
 		sum += complementedData;
 				
 		// random data
