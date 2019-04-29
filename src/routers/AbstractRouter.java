@@ -116,7 +116,7 @@ public abstract class AbstractRouter
 			System.out.print(message[i] + " ");
 		System.out.println("");
 		
-  		this.checksum = this.computeCheckSum();
+//  		this.checksum = this.computeCheckSum();
   		
 //		String message = "From: " + this.source;
 		// TODO: remove this when using other clients

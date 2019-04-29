@@ -112,7 +112,7 @@ public class InternetRouter
 			System.out.print(message[i] + " ");
 		System.out.println("");
 		
-  		this.checksum = this.computeCheckSum();
+//  		this.checksum = this.computeCheckSum();
   		
 		
 		// decide where to send message
