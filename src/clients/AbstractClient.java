@@ -272,10 +272,10 @@ public class AbstractClient {
 		
 		// start with starting value
 		message[5] = (byte) this.startingValue;
-		numReqBytes = (byte) ((Math.floor(Math.log(message[5]) / Math.log(2))) + 1);
-		complementedData = (byte) (((1 << numReqBytes) - 1) ^ message[5]);
-		sum += complementedData;
-				
+//		numReqBytes = (byte) ((Math.floor(Math.log(message[5]) / Math.log(2))) + 1);
+//		complementedData = (byte) (((1 << numReqBytes) - 1) ^ message[5]);
+//		sum += complementedData;
+		sum = message[5];
 		// random data
 //		System.out.println("C_DATA");
         for (int i = 6; i < length; i++)  
@@ -283,22 +283,26 @@ public class AbstractClient {
     			// random byte
         		message[i] = (byte) (rand.nextInt(100000) + 1);
         		
+        		sum += message[i];
             // Complementing the entered data 
             // Here we find the number of bits required to represent 
             // the data, like say 8 requires 1000, i.e 4 bits 
-            numReqBytes = (byte) ((Math.floor(Math.log(message[i]) / Math.log(2))) + 1); 
+//            numReqBytes = (byte) ((Math.floor(Math.log(message[i]) / Math.log(2))) + 1); 
               
             // Here we do a XOR of the data with the number 2^n -1, 
             // where n is the nob calculated in previous step 
-            c_data[i] = (byte) (((1 << numReqBytes) - 1) ^ message[i]); 
+//            c_data[i] = (byte) (((1 << numReqBytes) - 1) ^ message[i]); 
              
 //            System.out.println(c_data[i]);
             // Adding the complemented data and storing in sum 
-            sum += c_data[i]; 
+//            sum += c_data[i]; 
         } 
 		this.startingValue++;
 
         System.out.println("Checksum Calculated is : " + sum); 
+        
+        sum = (byte) (255 - (sum % 255));
+        
         byte checkSum = sum;
         message[2] = checkSum;
         return message;
