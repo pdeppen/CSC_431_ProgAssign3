@@ -128,7 +128,7 @@ public abstract class AbstractRouter
 //  			if (this.success)
 			this.sendToInternetRouter();
 //  			else
-  				System.out.println("Message did not send: checksum failed");
+//  				System.out.println("Message did not send: checksum failed");
   		}
   		else if (this.dest == this.myClient) 
 		{

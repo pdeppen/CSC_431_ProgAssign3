@@ -122,10 +122,10 @@ public class InternetRouter
 		}
 		else 
 		{
-			if (this.success)
+//			if (this.success)
 				this.sendToLan();
-			else 
-				System.out.println("Message did not send: checksum failed");
+//			else 
+//				System.out.println("Message did not send: checksum failed");
 		}
 		// close connection
 		try {
