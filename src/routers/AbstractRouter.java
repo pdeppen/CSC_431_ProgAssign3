@@ -124,6 +124,7 @@ public abstract class AbstractRouter
 		// decide where to send message
   		if (message[4] != 1)
   		{
+  			System.out.println("Sending to Router");
   			if (this.success)
   				this.sendToInternetRouter();
   			else
