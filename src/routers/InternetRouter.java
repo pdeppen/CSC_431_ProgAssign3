@@ -106,8 +106,10 @@ public class InternetRouter
 		
 		System.out.println("Client Source: " + message[0]);
 		System.out.println("Client Dest: " + message[1]);
-//		message[1] = (byte) ((message[1] << 4) + message[1]);
-
+		
+//		message[3] = (byte) ((message[1] << 4) + message[1]);
+//		message[]
+		message[1] = (byte) 6;
 		System.out.println("CheckSum: " + message[2]);
 		System.out.println("LAN Source: " + message[3]);
 		System.out.println("LAN Dest: " + message[4]);
