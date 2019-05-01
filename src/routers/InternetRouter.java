@@ -102,11 +102,11 @@ public class InternetRouter
 		this.lanSource = message[3];
 		this.lanDest = message[4];
 		
-		message[0] = (byte) ((message[0] << 24) >> 4);		
+//		message[0] = (byte) ((message[0] << 24) >> 4);		
 		
 		System.out.println("Client Source: " + message[0]);
 		System.out.println("Client Dest: " + message[1]);
-		message[1] = (byte) ((message[1] << 4) + message[1]);
+//		message[1] = (byte) ((message[1] << 4) + message[1]);
 
 		System.out.println("CheckSum: " + message[2]);
 		System.out.println("LAN Source: " + message[3]);
