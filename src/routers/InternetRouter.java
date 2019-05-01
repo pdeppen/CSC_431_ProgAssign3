@@ -102,8 +102,12 @@ public class InternetRouter
 		this.lanSource = message[3];
 		this.lanDest = message[4];
 		
+		message[0] = (byte) ((message[0] << 4) + message[0]);
+		
 		System.out.println("Client Source: " + message[0]);
 		System.out.println("Client Dest: " + message[1]);
+		message[1] = (byte) ((message[1] << 4) + message[1]);
+
 		System.out.println("CheckSum: " + message[2]);
 		System.out.println("LAN Source: " + message[3]);
 		System.out.println("LAN Dest: " + message[4]);
@@ -127,6 +131,7 @@ public class InternetRouter
 //			else 
 //				System.out.println("Message did not send: checksum failed");
 		}
+		
 		// close connection
 		try {
 			this.socket.close();

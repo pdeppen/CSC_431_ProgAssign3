@@ -39,12 +39,12 @@ public class SendMessages
 		{			
 			System.out.println("Client 1 Sending");
 			sendMessage(clientOne);
-//			System.out.println("Client 2 Sending");
-//			sendMessage(clientTwo);
-//			System.out.println("Client 3 Sending");
-//			sendMessage(clientThree);
-//			System.out.println("Client 4 Sending");
-//			sendMessage(clientFour);
+			System.out.println("Client 2 Sending");
+			sendMessage(clientTwo);
+			System.out.println("Client 3 Sending");
+			sendMessage(clientThree);
+			System.out.println("Client 4 Sending");
+			sendMessage(clientFour);
 		}
     }
     
