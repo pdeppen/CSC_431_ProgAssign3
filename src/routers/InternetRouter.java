@@ -109,7 +109,6 @@ public class InternetRouter
 		
 //		message[3] = (byte) ((message[1] << 4) + message[1]);
 //		message[]
-		message[1] = (byte) 6;
 		System.out.println("CheckSum: " + message[2]);
 		System.out.println("LAN Source: " + message[3]);
 		System.out.println("LAN Dest: " + message[4]);
@@ -145,6 +144,8 @@ public class InternetRouter
 	
 	private void sendToLan() 
 	{
+		message[1] = (byte) 6;
+
 		System.out.println("sending to: " + this.lanDest);
 		try {
 			sendDest = InetAddress.getByName("157.160.37.178");
