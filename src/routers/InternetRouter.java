@@ -102,7 +102,7 @@ public class InternetRouter
 		this.lanSource = message[3];
 		this.lanDest = message[4];
 		
-		message[0] = (byte) ((message[0] << 4) + message[0]);
+		message[0] = (byte) ((message[0] << 24) >> 4);		
 		
 		System.out.println("Client Source: " + message[0]);
 		System.out.println("Client Dest: " + message[1]);
